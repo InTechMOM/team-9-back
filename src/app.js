@@ -1,12 +1,12 @@
 import express from 'express';
 import {port} from './config/index.js';
-
+import {routes} from './routes/index.routes.js';
 const app = express();
 
-app.get('/', (request, response, error)=>{
-  
-  response.send('status: ok')
-})
+//Routes
+ 
+app.use(require('./routes/index.routes.js'));
+
 
 app.listen(port, (error) => {
 
