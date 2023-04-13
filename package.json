@@ -1,13 +1,18 @@
 {
   "name": "mvp",
   "version": "1.0.0",
-  "description": "",
+  "description": "<br />",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^5.2.0",
     "mongoose": "^7.0.3",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.22"
   },
   "scripts": {
@@ -15,6 +20,8 @@
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Intech Mom",
-  "type": "module"
+  "author": "Intech Mom_Tatiana Martinez",
+  "type": "module",
+  "keywords": [],
+  "license": "ISC"
 }

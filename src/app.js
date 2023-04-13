@@ -1,11 +1,15 @@
 import express from 'express';
 import {port} from './config/index.js';
-import {routes} from './routes/index.routes.js';
-const app = express();
+import  Database from  './dbConnection/connection.js';
 
-//Routes
- 
-app.use(require('./routes/index.routes.js'));
+const app = express();
+const db = new Database();
+
+//routes
+app.get('/', (request, response, error)=>{
+  
+  response.send('status: ok')
+})
 
 
 app.listen(port, (error) => {

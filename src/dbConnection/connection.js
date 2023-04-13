@@ -1,7 +1,17 @@
-/*const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const password = 'd3v01';
-const dbname = 'IntechMom';
-const db_uri = `mongodb+srv://devt9:${password}@intechmom.m1mewtu.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+class Database {
 
-module.exports = () => mongoose.connect(uri, {useNewUrlPrser: true, useUniFiedTopology: true});
+  constructor() {
+    //mongodb connection
+    this.db = mongoose
+      .connect(process.env.DB_URI)
+      .then(() => console.log('Connected to MongoDB Atlas'))
+      .catch((error) => console.error(error));
+
+
+  }
+
+}
+
+export { Database as default }
