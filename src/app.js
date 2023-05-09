@@ -1,7 +1,8 @@
 import express from 'express';
 import {port} from './config/index.js';
 import  Database from  './dbConnection/connection.js';
-import router from './router.js';
+import router from '../src/routes/videoRoutes.js';
+
 
 
 const app = express();

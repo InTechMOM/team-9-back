@@ -28,7 +28,7 @@ const uploadVideo = async (request, response) => {
   } catch (error){
     console.log (error);
     let{details} = error;
-res.status(500).json({ error});
+response.status(500).json({ error});
   }
 }
 
