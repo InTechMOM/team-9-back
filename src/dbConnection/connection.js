@@ -8,8 +8,6 @@ class Database {
       .connect(process.env.DB_URI)
       .then(() => console.log('Connected to MongoDB Atlas'))
       .catch((error) => console.error(error));
-
-
   }
 
 }
