@@ -1,10 +1,10 @@
-import { Router } from "express";
-import { videoRouter }  from '../src/routes/videoRoutes.js';
+//import { Router } from "express";
+//import { videoRouter }  from '../src/routes/videoRoutes.js';
 
 
 
-const router = Router();
+//const router = Router();
 
-router.use('/', videoRouter);
+//router.use('/', videoRouter);
 
-export default router;
+//export default router;
