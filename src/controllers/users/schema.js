@@ -12,11 +12,9 @@ function createUserSchema(req, res, next) {
 function updateUserSchema(req, res, next) {
   const updateSchema = Joi.object ({
       name: Joi.string().empty(''),
-      lastName: Joi.string().empty(''),
-      email: Joi.string().email().empty(''),
-      rol: Joi.string().empty('')
+      lastName: Joi.string().empty('')
   });
-  
+  validateRequest(req, next, updateSchema);  
 };
 
 function validateRequest(req, next, schema) {

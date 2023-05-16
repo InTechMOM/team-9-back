@@ -14,6 +14,8 @@ app.get('/', (request, response, error)=>{
   response.send('status: ok')
 })
 
+app.use('/users', userRoutes);
+
 app.listen(port, (error) => {
 
   if(error) {
@@ -23,7 +25,5 @@ app.listen(port, (error) => {
   console.log(`Server listening port ${port}`)
 
 })
-
-app.use('/users', userRoutes);
 
 export default app;
