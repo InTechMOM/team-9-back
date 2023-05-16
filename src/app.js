@@ -1,16 +1,20 @@
 import express from 'express';
 import {port} from './config/index.js';
 import  Database from  './dbConnection/connection.js';
+import userRoutes from './routes/userRoutes.js'
 
 const app = express();
 const db = new Database();
 
+//Lectura de datos en formato json
+app.use(express.json());
+
 //routes
 app.get('/', (request, response, error)=>{
-  
   response.send('status: ok')
 })
 
+app.use('/users', userRoutes);
 
 app.listen(port, (error) => {
 
@@ -21,3 +25,5 @@ app.listen(port, (error) => {
   console.log(`Server listening port ${port}`)
 
 })
+
+export default app;
