@@ -3,7 +3,7 @@ import Joi from 'joi';
 function createUserSchema(req, res, next) {
   const createSchema = Joi.object({
       name: Joi.string().required(),
-      lastname: Joi.string().required(),
+      lastName: Joi.string().required(),
       email: Joi.string().email().required(),
       rol: Joi.string().valid('teacher', 'student').required()
   });

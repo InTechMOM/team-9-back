@@ -30,6 +30,6 @@ export const updateUsersById = async (request, response) => {
 
 //Delete user
 export const deleteUsersById = async (request, response) => {
-  await Users.findByIdAndDelete(request.params.usersId);
+  await Users.findByIdAndDelete(request.params.userId);
   response.json("user delete");
 }
