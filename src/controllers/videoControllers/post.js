@@ -1,28 +1,19 @@
-//import User from "../../../models/user.js";
+import User from "../../../models/user.js";
 import Video from "../../models/videoModels.js";
 
 
-//const newVideo = async (req, res, next) => {
-  //const videoModel = new Video();
 
-  //const { url, title, description} = req.body;
-  //const videoToSave = { url, title, description};
- 
-  //try {
-   // const saveVideo = await videoModel.save(videoToSave)
-   // res.status(200).json({
-   //   upload:("Ok"),
-    //  data: saveVideo
-   // })
-  //} catch (error) { 
-  //  next (error)
- // }    
-//}
 
 const uploadVideo = async (request, response) => {
   try{
-  const {url, title, description} = request.body;
-  const newVideo= new Video({url, title, description});
+  const {url, title,  description} = request.body;
+  const teacherEmail = await getUserBy({email: req.body.emailTeacher, rol: 'teacher'});
+  const studentEmail = await getUserBy({email: req.body.emailStudent, rol: 'student'});
+
+  //if(!student?.length || teacher.length){
+    //return res.status(400).json({message: 'Teacher or student incorrect'});
+//}
+  const newVideo= new Video({url, title, studentEmail, teacherEmail,  description});
   const videoSaved = await newVideo.save();
   return response.status(201).json(videoSaved);
   } catch (error){
@@ -33,4 +24,4 @@ response.status(500).json({ error});
 }
 
 export default uploadVideo;
-//export default newVideo;
+
