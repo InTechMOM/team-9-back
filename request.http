@@ -1,0 +1,28 @@
+###
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Salome",
+  "lastName": "Bedoya",
+  "email": "Salomediferente32@correo.com",
+  "rol": "student"
+}
+
+###
+GET http://localhost:3000/users HTTP/1.1
+
+###
+GET http://localhost:3000/users/6463b9cc2fa2c46b874c6b10 HTTP/1.1
+
+###
+PUT http://localhost:3000/users/6463b9cc2fa2c46b874c6b10 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Leidybnjksbcujhd",
+  "lastName": "Bedoya Martinez"
+}
+
+###
+DELETE http://localhost:3000/users/643ef2bed8bad44db65f56aa HTTP/1.1
