@@ -26,11 +26,11 @@ const validateVideo = (request, response, next) => {
  try { 
  const validatedVideo = createVideoSchema.validate(request.body);
 if (validatedVideo.error) {
-   response.status(400).json({ error: validateVideo.error});
+  return response.status(400).json({ error: validatedVideo.error.details});
  } else { next();
  }
 } catch (error) { console.log (error);
- response.status(500).json({error: 'Internal Server Error'});
+ return response.status(500).json({error: 'Internal Server Error'});
 
 }
 }

@@ -1,7 +1,7 @@
 import Video from "../../models/videoModels.js";
 
 const deleteVideo = async (req, res) => {
-  const { id } = request.params;
+  const { id } = req.params;
   const video = await Video.findById(id);
   if (!video) {
     return res.status(404).json({message: "Video not found"});
