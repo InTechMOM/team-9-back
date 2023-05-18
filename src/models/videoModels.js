@@ -18,8 +18,20 @@ const videoSchema = new Schema(
       type: String,
       require: true
     },
+    nameStudent: {
+      type: Schema.Types.ObjectId,
+      ref: 'Users',
+      require: true,
+    },
+    emailTeacher: { 
+      type: Schema.Types.ObjectId, 
+      ref: 'Users', 
+      require: true,
+   
+    },
 
     description: {
+  
       type: String,
       require: true
     },
