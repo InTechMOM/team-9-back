@@ -5,6 +5,7 @@ const videoSchema = new Schema(
   {
     url: {
       type: String,
+      unique: true,
       validate: {
         validator: function(v) {
              return /^https:\/\/www.youtube.com\/.*$/.test(v);
@@ -16,15 +17,16 @@ const videoSchema = new Schema(
 
     title: {
       type: String,
+      unique: true,
       require: true
     },
-    nameStudent: {
-      type: Schema.Types.ObjectId,
+    emailStudent: {
+      type: String,
       ref: 'Users',
       require: true,
     },
     emailTeacher: { 
-      type: Schema.Types.ObjectId, 
+      type: String, 
       ref: 'Users', 
       require: true,
    

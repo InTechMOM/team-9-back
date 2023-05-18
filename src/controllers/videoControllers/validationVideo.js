@@ -1,7 +1,7 @@
 
 import Joi from 'joi'
-function createVideoSchema(req, res, next) {
-const createSchema =  Joi.object({
+//function createVideoSchema(req, res, next) {
+const createVideoSchema =  Joi.object({
   url: Joi.string()
     .required(),
   title: Joi.string()
@@ -22,37 +22,36 @@ const createSchema =  Joi.object({
  //Validación
 
 
- validateRequest(req, next, createSchema);}
+// validateRequest(req, next, createSchema);}
 
- function validateRequest(req, next, schema) {
-  const options = {
-      abortEarly: false, // include all errors
-      allowUnknown: true, // ignore unknown props
-      stripUnknown: true // remove unknown props
-  };
-  const { error, value } = schema.validate(req.body, options);
-  if (error) {
-      next(`Validation error: ${error.details.map(x => x.message).join(', ')}`);
-  } else {
-      req.body = value;
-      next();
-  }
+ //function validateRequest(req, next, schema) {
+  //const options = {
+  //    abortEarly: false, // include all errors
+   //   allowUnknown: true, // ignore unknown props
+//       stripUnknown: true // remove unknown props
+//   };
+//   const { error, value } = schema.validate(req.body, options);
+//   if (error) {
+//       next(`Validation error: ${error.details.map(x => x.message).join(', ')}`);
+//   } else {
+//       req.body = value;
+//       next();
+//   }
+// }
+
+// export default createVideoSchema;
+
+const validateVideo = (request, response, next) => {
+ 
+ try { 
+ const validatedVideo = createVideoSchema.validate(request.body);
+if (validatedVideo.error) {
+   response.status(400).json({ error: validateVideo.error});
+ } else { next();
+ }
+} catch (error) { console.log (error);
+ response.status(500).json({error: 'Internal Server Error'});
+
 }
-
-export default createVideoSchema;
-
-//const validateVideo = (request, response, next) => {
-//  console.log("error no se valida");
-//  try { 
- // const validatedVideo = createVideoSchema.validate(request.body);
-// if (validatedVideo.error) {
-//    response.status(400).json({ error: validateVideo.error});
- // } else { next();
-//  }
-//} catch (error) { console.log (error);
-//  response.status(500).json({error: 'Internal Server Error'});
-
-//}
-//}
-//export default validateVideo;
-
+}
+export default validateVideo;
