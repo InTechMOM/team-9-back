@@ -1,6 +1,6 @@
 
 import Joi from 'joi'
-//function createVideoSchema(req, res, next) {
+
 const createVideoSchema =  Joi.object({
   url: Joi.string()
     .required(),
@@ -20,26 +20,6 @@ const createVideoSchema =  Joi.object({
       .max(500)
 })
  //Validación
-
-
-// validateRequest(req, next, createSchema);}
-
- //function validateRequest(req, next, schema) {
-  //const options = {
-  //    abortEarly: false, // include all errors
-   //   allowUnknown: true, // ignore unknown props
-//       stripUnknown: true // remove unknown props
-//   };
-//   const { error, value } = schema.validate(req.body, options);
-//   if (error) {
-//       next(`Validation error: ${error.details.map(x => x.message).join(', ')}`);
-//   } else {
-//       req.body = value;
-//       next();
-//   }
-// }
-
-// export default createVideoSchema;
 
 const validateVideo = (request, response, next) => {
  

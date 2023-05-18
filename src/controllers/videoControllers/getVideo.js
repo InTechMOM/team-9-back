@@ -3,8 +3,8 @@ import Video from "../../models/videoModels.js";
 const getVideoById = async (request, response) => {
   const { id } = request.params;
   const video = await Video.findById(id);
-  if (video === null){
-    return response.status(404).json({menssage: "Video not found"});
+  if (!video){
+    return response.status(404).json({message: "Video not found"});
   }
   return response.status(200).json(video);
 };

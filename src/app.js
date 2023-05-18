@@ -1,7 +1,7 @@
 import express from 'express';
 import {port} from './config/index.js';
 import  Database from  './dbConnection/connection.js';
-import router from '../src/routes/videoRoutes.js';
+import videoRouter from '../src/routes/videoRoutes.js';
 import userRoutes from './routes/userRoutes.js'
 
 
@@ -15,7 +15,7 @@ app.use(express.json());
 
 //routes
 app.use('/users', userRoutes);
-app.use('/', router);
+app.use('/', videoRouter);
 
 
 
