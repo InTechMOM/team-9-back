@@ -22,12 +22,10 @@ const videoSchema = new Schema(
     },
     emailStudent: {
       type: String,
-      ref: 'Users',
       require: true,
     },
     emailTeacher: { 
       type: String, 
-      ref: 'Users', 
       require: true,
    
     },
