@@ -22,7 +22,6 @@ const createVideoSchema =  Joi.object({
 
 //Validación
 const validateVideo = (request, response, next) => {
- 
  try { 
  const validatedVideo = createVideoSchema.validate(request.body);
 if (validatedVideo.error) {

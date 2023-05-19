@@ -1,10 +1,10 @@
 import { Router } from "express";
 
 //import router from '../router.js';
-import validateVideo from '../controllers/videoControllers/validationVideo.js';
-import uploadVideo from '../controllers/videoControllers/post.js';
-import { getVideos, getVideoById } from "../controllers/videoControllers/getVideo.js";
-import deleteVideo from "../controllers/videoControllers/deleteVideo.js";
+import validateVideo from '../controllers/video/validationVideo.js';
+import uploadVideo from '../controllers/video/post.js';
+import { getVideos, getVideoById } from "../controllers/video/getVideo.js";
+import deleteVideo from "../controllers/video/deleteVideo.js";
 
 const videoRouter = Router();
 
@@ -36,11 +36,14 @@ const videoRouter = Router();
  *         teacherEmail:
  *           type: string
  *           format: email
+ *         description:
+ *           type: string
  *       example:
  *         url: www.youtube.com
  *         title: Video
  *         studentEmail: student@email.com
  *         teacherEmail: teacter@email.com
+ *         description: Activity done correctly
  * 
  *     videos:
  *       type: object
@@ -179,4 +182,4 @@ videoRouter.get('/videos', getVideos);
 */
 videoRouter.delete("/videos/:id", deleteVideo);
 
-export default videoRouter ;
+export default videoRouter;
