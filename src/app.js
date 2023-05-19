@@ -25,7 +25,6 @@ app.get('/', (request, response, error)=>{
 })
 
 app.listen(port, (error) => {
-
   if(error) {
     console.log('Server error: Failed');
     process.exit(1);

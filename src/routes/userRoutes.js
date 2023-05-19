@@ -114,6 +114,8 @@ const router = Router();
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Users'
+ *       500:
+ *         description: Internal Server Error
  */
 
 router.post('/', createUserSchema, userControllers.createUsers);
@@ -200,7 +202,7 @@ router.get('/:usersId', userControllers.getUsersById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Users'
- *       400:
+ *       404:
  *         description: User not found
  *       422: 
  *         description: Invalid Id
@@ -232,14 +234,6 @@ router.put('/:usersId', updateUserSchema, userControllers.updateUsersById);
 *           application/json:
 *             schema:
 *               $ref: '#/components/schemas/Users'
-*       404:
-*         description: User not found
-*       422: 
-*         description: Invalid Id
-*         content:
-*           application/json:
-*             schema:
-*               $ref: '#/components/schemas/Validator'
 */
 
 router.delete('/:userId', userControllers.deleteUsersById);

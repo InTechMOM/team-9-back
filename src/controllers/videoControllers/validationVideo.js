@@ -19,8 +19,8 @@ const createVideoSchema =  Joi.object({
       .min(3)
       .max(500)
 })
- //Validación
 
+//Validación
 const validateVideo = (request, response, next) => {
  
  try { 
@@ -31,7 +31,6 @@ if (validatedVideo.error) {
  }
 } catch (error) { console.log (error);
  return response.status(500).json({error: 'Internal Server Error'});
-
 }
 }
 export default validateVideo;

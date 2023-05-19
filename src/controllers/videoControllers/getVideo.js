@@ -9,13 +9,9 @@ const getVideoById = async (request, response) => {
   return response.status(200).json(video);
 };
 
-
-
 const getVideos = async (request, response) => {
   const video = await Video.find();
   return response.status(200).json(video);
 };
 
-export  { getVideos, getVideoById } ;
-
-
+export  { getVideos, getVideoById };

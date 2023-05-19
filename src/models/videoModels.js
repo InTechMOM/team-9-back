@@ -1,6 +1,5 @@
 import {Schema, model} from 'mongoose';
 
-
 const videoSchema = new Schema(
   {
     url: {
@@ -14,7 +13,6 @@ const videoSchema = new Schema(
      },
      required: [true, 'Youtube video link is required.']
     },
-
     title: {
       type: String,
       unique: true,
@@ -27,11 +25,8 @@ const videoSchema = new Schema(
     emailTeacher: { 
       type: String, 
       require: true,
-   
     },
-
     description: {
-  
       type: String,
       require: true
     },
