@@ -1,7 +1,7 @@
 
 import Joi from 'joi'
 
-const createVideoSchema =  Joi.object({
+export const createVideoSchema =  Joi.object({
   url: Joi.string()
     .required(),
   title: Joi.string()
@@ -17,8 +17,122 @@ const createVideoSchema =  Joi.object({
   description: Joi.string()
       .required()
       .min(3)
-      .max(500)
+      .max(500),
+  assessment: ({
+    skills: ({
+      collaborativeWork: {
+        toBe: Joi.number()
+          .min(0)
+          .max(5),
+        toKnow: Joi.number()
+          .min(0)
+          .max(5),
+        toDo: Joi.number()
+          .min(0)
+          .max(5),
+      },
+      creativity: {
+        toBe: Joi.number()
+          .min(0)
+          .max(5),
+        toKnow: Joi.number()
+          .min(0)
+          .max(5),
+        toDo: Joi.number()
+          .min(0)
+          .max(5),
+      },
+      communication: {
+        toBe: Joi.number()
+          .min(0)
+          .max(5),
+        toKnow: Joi.number()
+          .min(0)
+          .max(5),
+        toDo: Joi.number()
+          .min(0)
+          .max(5),
+      },
+      criticalThinking: {
+        toBe: Joi.number()
+          .min(0)
+          .max(5),
+        toKnow: Joi.number()
+          .min(0)
+          .max(5),
+        toDo: Joi.number()
+          .min(0)
+          .max(5),
+      },
+    }),
+    generalQualification: Joi.number()
+      .min(0)
+      .max(5),
+    generalObservations: Joi.string()
+    .min(3)
+    .max(500)    
+    }) 
 })
+
+
+
+export const updateVideoSchema =  Joi.object({
+assessment: ({
+  skills: ({
+    collaborativeWork: {
+      toBe: Joi.number()
+        .min(0)
+        .max(5),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5),
+      toDo: Joi.number()
+        .min(0)
+        .max(5),
+    },
+    creativity: {
+      toBe: Joi.number()
+        .min(0)
+        .max(5),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5),
+      toDo: Joi.number()
+        .min(0)
+        .max(5),
+    },
+    communication: {
+      toBe: Joi.number()
+        .min(0)
+        .max(5),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5),
+      toDo: Joi.number()
+        .min(0)
+        .max(5),
+    },
+    criticalThinking: {
+      toBe: Joi.number()
+        .min(0)
+        .max(5),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5),
+      toDo: Joi.number()
+        .min(0)
+        .max(5),
+    }
+  }),
+  generalQualification: Joi.number()
+    .min(0)
+    .max(5),
+  generalObservations: Joi.string()
+  .min(3)
+  .max(500)    
+  }) 
+})
+
  //Validación
 
 const validateVideo = (request, response, next) => {
@@ -35,3 +149,6 @@ if (validatedVideo.error) {
 }
 }
 export default validateVideo;
+
+
+

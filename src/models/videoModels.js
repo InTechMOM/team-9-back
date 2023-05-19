@@ -35,6 +35,88 @@ const videoSchema = new Schema(
       type: String,
       require: true
     },
+
+    assessment: {
+      skills:{
+        collaborativeWork: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+        },
+        creativity: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+        },
+        communication: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+        },
+        criticalThinking: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5
+          },
+        },
+      },
+      generalQualification: {
+        type: Number,
+        min: 0,
+        max: 5
+      },
+      generalObservations:{
+        type: String,
+
+      },
+    },
     },
   { 
     timestamps: true,    
