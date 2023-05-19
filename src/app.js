@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import {port} from './config/index.js';
 import  Database from  './dbConnection/connection.js';
@@ -8,6 +9,9 @@ import { openApiSpecification } from './config/swagger.js';
 
 const app = express();
 const db = new Database();
+
+//Configuración de cors
+app.use(cors());
 
 //Lectura de datos en formato json
 app.use(express.json());
