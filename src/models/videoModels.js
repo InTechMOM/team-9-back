@@ -14,7 +14,6 @@ const videoSchema = new Schema(
      },
      required: [true, 'Youtube video link is required.']
     },
-
     title: {
       type: String,
       unique: true,
@@ -27,15 +26,11 @@ const videoSchema = new Schema(
     emailTeacher: { 
       type: String, 
       require: true,
-   
     },
-
     description: {
-  
       type: String,
       require: true
     },
-
     assessment: {
       skills:{
         collaborativeWork: {
@@ -114,7 +109,6 @@ const videoSchema = new Schema(
       },
       generalObservations:{
         type: String,
-
       },
     },
     },
