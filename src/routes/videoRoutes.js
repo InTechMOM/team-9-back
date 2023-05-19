@@ -42,7 +42,7 @@ const videoRouter = Router();
  *         studentEmail: student@email.com
  *         teacherEmail: teacter@email.com
  * 
- *     Video:
+ *     videos:
  *       type: object
  *       required:
  *         - url
@@ -78,13 +78,13 @@ const videoRouter = Router();
 /**
  * @swagger
  * tags:
- *   name: Video
+ *   name: videos
  *   description: API for Video
  * 
- * /Video/:
+ * /videos/:
  *   post:
  *     summary: Create a new video
- *     tags: [Video]
+ *     tags: [videos]
  *     requestBody:
  *       required: true
  *       content:
@@ -97,17 +97,17 @@ const videoRouter = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Video'
+ *               $ref: '#/components/schemas/videos'
  */
 
 videoRouter.post('/videos', validateVideo, uploadVideo);
 
 /**
  * @swagger
- * /Video/{id}:
+ * /videos/{id}:
  *   get:
  *     summary: Return the video of a student
- *     tags: [Video]
+ *     tags: [videos]
  *     parameters:
  *       - in: path
  *         name: id
@@ -122,7 +122,7 @@ videoRouter.post('/videos', validateVideo, uploadVideo);
  *           application/json:
  *             schema:
  *               type: object
- *               $ref: '#/components/schemas/Video'
+ *               $ref: '#/components/schemas/videos'
  *       404:
  *         description: User not found
  *         content:
@@ -136,13 +136,13 @@ videoRouter.get("/videos/:id", getVideoById);
 /**
  * @swagger
  * tags:
- *   name: Video
+ *   name: videos
  *   description: API for video
  * 
- * /Video/:
+ * /videos/:
  *   get:
  *     summary: Return all videos
- *     tags: [Video]
+ *     tags: [videos]
  *     responses:
  *       200:
  *         description: All video
@@ -151,17 +151,17 @@ videoRouter.get("/videos/:id", getVideoById);
  *             schema:
  *               type: array
  *               items: 
- *                 $ref: '#/components/schemas/Video'
+ *                 $ref: '#/components/schemas/videos'
  */
 
 videoRouter.get('/videos', getVideos);
 
 /**
 * @swagger
-* /Video/{id}:
+* /videos/{id}:
 *   delete:
 *     summary: Delete user
-*     tags: [Video]
+*     tags: [videos]
 *     parameters:
 *       - in: path
 *         name: id
@@ -175,7 +175,7 @@ videoRouter.get('/videos', getVideos);
 *         content:
 *           application/json:
 *             schema:
-*               $ref: '#/components/schemas/Video'
+*               $ref: '#/components/schemas/videos'
 */
 videoRouter.delete("/videos/:id", deleteVideo);
 
