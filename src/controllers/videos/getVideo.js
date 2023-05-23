@@ -14,6 +14,4 @@ const getVideos = async (request, response) => {
   return response.status(200).json(video);
 };
 
-export  { getVideos, getVideoById } ;
-
-
+export  { getVideos, getVideoById };
