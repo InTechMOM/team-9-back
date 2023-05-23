@@ -22,81 +22,88 @@ export const createVideoSchema =  Joi.object({
 
 
 
-export const updateVideoSchema =  Joi.object({
-assessment:{
-  skills: {
-    collaborativeWork: {
-      toBe: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toKnow: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toDo: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-    },
-    creativity: {
-      toBe: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toKnow: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toDo: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-    },
-    communication: {
-      toBe: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toKnow: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toDo: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-    },
-    criticalThinking: {
-      toBe: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toKnow: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-      toDo: Joi.number()
-        .min(0)
-        .max(5)
-        .required(),
-    }
-  },
-  generalQualification: Joi.number()
-    .min(0)
-    .max(5)
-    .required(),
+//export const updateVideoSchema =  {
+const assessmentSchema = Joi.object({
+  generalQualification:  Joi.number()
+  .min(0)
+  .max(5)
+  .required(),
   generalObservations: Joi.string()
   .min(3)
   .max(500)    
-  .required()
-  } 
-})
+  .required(),
+ assessment: Joi.array().items( Joi.object({
+   //skills: Joi.array().items({
+    collaborativeWork: Joi.object ({
+      toBe: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toDo: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+    }),
+
+  
+    creativity: Joi.object ({
+      toBe: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toDo: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+    }),
+    communication: Joi.object ({
+      toBe: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toDo: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+    }),
+    criticalThinking: Joi.object ({
+      toBe: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toKnow: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+      toDo: Joi.number()
+        .min(0)
+        .max(5)
+        .required(),
+    }),
+  })
+ )
+
+  }) 
+ 
+
+
 
  //Validación
 
 const validateVideo = (request, response, next) => {
- 
+
  try { 
  const validatedVideo = createVideoSchema.validate(request.body);
 if (validatedVideo.error) {
@@ -113,8 +120,8 @@ export default validateVideo;
 
 const validateUpdateVideo = (request, response, next) => {
  
-  try { 
-  const validatedUpdateVideo = updateVideoSchema.validate(request.body);
+  try { ;
+  const validatedUpdateVideo = assessmentSchema.validate(request.body);
  if (validatedUpdateVideo.error) {
    return response.status(400).json({ error: validatedUpdateVideo.error.details});
   } else { next();
@@ -124,7 +131,7 @@ const validateUpdateVideo = (request, response, next) => {
  
  }
  }
- export {validateVideo, validateUpdateVideo} ;
+ export {validateVideo, validateUpdateVideo, assessmentSchema} ;
 
 
 

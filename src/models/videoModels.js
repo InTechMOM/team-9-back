@@ -31,87 +31,103 @@ const videoSchema = new Schema(
       type: String,
       require: true
     },
-    assessment: {
-      skills:{
+    generalObservations:{
+      type: String,
+      require:false
+    },
+    generalQualification: {
+      type: Number,
+      min: 0,
+      max: 5,
+      require:false
+    },
+    assessment: [{
+    // skills:[{
         collaborativeWork: {
           toBe: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5, 
+            require:false
           },
           toKnow: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toDo: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
         },
         creativity: {
           toBe: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toKnow: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toDo: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
         },
         communication: {
           toBe: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toKnow: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toDo: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
         },
         criticalThinking: {
           toBe: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toKnow: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
           toDo: {
             type: Number,
             min: 0,
-            max: 5
+            max: 5,
+            require:false
           },
         },
-      },
-      generalQualification: {
-        type: Number,
-        min: 0,
-        max: 5
-      },
-      generalObservations:{
-        type: String,
-      },
+      }],
+    
+     
     },
-    },
+  
   { 
     timestamps: true,    
  }
