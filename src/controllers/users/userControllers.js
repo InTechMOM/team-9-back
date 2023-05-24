@@ -16,7 +16,12 @@ export const createUsers = async (request, response) => {
 
 //Get all users
 export const getUsers = async (request, response) => {
-  const userGet = await Users.find();
+  const { email, rol } = request.query;
+  const filters = {
+    ...email && { email },
+    ...rol && { rol }
+  }
+  const userGet = await Users.find(filters);
   response.status(200).json(userGet);
 }
 
