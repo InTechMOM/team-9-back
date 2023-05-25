@@ -30,7 +30,105 @@ const videoSchema = new Schema(
       type: String,
       require: true
     },
+    generalObservations:{
+      type: String,
+      require:false
     },
+    generalQualification: {
+      type: Number,
+      min: 0,
+      max: 5,
+      require:false
+    },
+    assessment:{
+      type: [{
+    // skills:[{
+        collaborativeWork: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5, 
+            require:false
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+        },
+        creativity: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+        },
+        communication: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+        },
+        criticalThinking: {
+          toBe: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toKnow: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+          toDo: {
+            type: Number,
+            min: 0,
+            max: 5,
+            require:false
+          },
+        },
+      }],
+    default:undefined
+    }
+     
+    },
+  
   { 
     timestamps: true,    
  }
