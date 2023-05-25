@@ -33,7 +33,6 @@ const assessmentSchema = Joi.object({
   .max(500)    
   .required(),
  assessment: Joi.array().items( Joi.object({
-   //skills: Joi.array().items({
     collaborativeWork: Joi.object ({
       toBe: Joi.number()
         .min(0)
@@ -47,9 +46,7 @@ const assessmentSchema = Joi.object({
         .min(0)
         .max(5)
         .required(),
-    }),
-
-  
+    }).required(),
     creativity: Joi.object ({
       toBe: Joi.number()
         .min(0)
@@ -63,7 +60,7 @@ const assessmentSchema = Joi.object({
         .min(0)
         .max(5)
         .required(),
-    }),
+    }).required(),
     communication: Joi.object ({
       toBe: Joi.number()
         .min(0)
@@ -77,7 +74,7 @@ const assessmentSchema = Joi.object({
         .min(0)
         .max(5)
         .required(),
-    }),
+    }).required(),
     criticalThinking: Joi.object ({
       toBe: Joi.number()
         .min(0)
@@ -91,10 +88,9 @@ const assessmentSchema = Joi.object({
         .min(0)
         .max(5)
         .required(),
-    }),
-  })
+    }).required(),
+  }).required()
  )
-
   }) 
  
 

@@ -40,7 +40,8 @@ const videoSchema = new Schema(
       max: 5,
       require:false
     },
-    assessment: [{
+    assessment:{
+      type: [{
     // skills:[{
         collaborativeWork: {
           toBe: {
@@ -123,7 +124,8 @@ const videoSchema = new Schema(
           },
         },
       }],
-    
+    default:undefined
+    }
      
     },
   
