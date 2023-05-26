@@ -9,7 +9,12 @@ const swaggerOptions = {
     },
     servers: [
       {
+        url: "https://team-9-back.onrender.com/"
+        
+      },
+      {
         url: "http://localhost:3000/"
+        
       }
     ]
   },
