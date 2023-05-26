@@ -18,6 +18,7 @@ const uploadVideo = async (req, res) => {
     emailStudent: student.email,
     emailTeacher: teacher.email,
     description: req.body.description, 
+
   });
   const videoSaved = await newVideo.save();
   return res.status(201).json(videoSaved);
