@@ -8,7 +8,7 @@ const router = Router();
  * @swagger
  * components:
  *   schemas:
- *     Validator:
+ *     validator:
  *       type: object
  *       properties:
  *         message:
@@ -52,7 +52,7 @@ const router = Router();
  *         name: Tatiana
  *         lastName: Martinez
  * 
- *     Users:
+ *     users:
  *       type: object
  *       required:
  *         - name
@@ -94,13 +94,13 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Users
+ *   name: users
  *   description: API for users
  * 
  * /users/:
  *   post:
  *     summary: Create a new user
- *     tags: [Users]
+ *     tags: [users]
  *     requestBody:
  *       required: true
  *       content:
@@ -113,7 +113,9 @@ const router = Router();
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Users'
+ *               $ref: '#/components/schemas/users'
+ *       400:
+ *         description: Email is already in use
  *       500:
  *         description: Internal Server Error
  */
@@ -129,7 +131,7 @@ router.post('/', createUserSchema, userControllers.createUsers);
  * /users/:
  *   get:
  *     summary: Return all users
- *     tags: [Users]
+ *     tags: [users]
  *     responses:
  *       200:
  *         description: All users
@@ -138,7 +140,9 @@ router.post('/', createUserSchema, userControllers.createUsers);
  *             schema:
  *               type: array
  *               items: 
- *                 $ref: '#/components/schemas/Users'
+ *                 $ref: '#/components/schemas/users'
+ *       500:
+ *         description: Internal Server Error
  */
 
 router.get('/', userControllers.getUsers);
@@ -148,7 +152,7 @@ router.get('/', userControllers.getUsers);
  * /users/{id}:
  *   get:
  *     summary: Return a user
- *     tags: [Users]
+ *     tags: [users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -163,15 +167,13 @@ router.get('/', userControllers.getUsers);
  *           application/json:
  *             schema:
  *               type: object
- *               $ref: '#/components/schemas/Users'
- *       404:
- *         description: User not found
- *       422: 
- *         description: Invalid Id
+ *               $ref: '#/components/schemas/users'
+ *       400:
+ *         description: Invalid Id or Id does not exist
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Validator'
+ *               $ref: '#/components/schemas/validator'
  */
 
 router.get('/:usersId', userControllers.getUsersById);
@@ -181,7 +183,7 @@ router.get('/:usersId', userControllers.getUsersById);
  * /users/{id}:
  *   put:
  *     summary: Update Users
- *     tags: [Users]
+ *     tags: [users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -201,15 +203,13 @@ router.get('/:usersId', userControllers.getUsersById);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Users'
- *       404:
- *         description: User not found
- *       422: 
- *         description: Invalid Id
+ *               $ref: '#/components/schemas/users'
+ *       400:
+ *         description: Invalid Id or Id does not exist
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Validator'
+ *               $ref: '#/components/schemas/validator'
  */
 
 router.put('/:usersId', updateUserSchema, userControllers.updateUsersById);
@@ -219,7 +219,7 @@ router.put('/:usersId', updateUserSchema, userControllers.updateUsersById);
 * /users/{id}:
 *   delete:
 *     summary: Delete user
-*     tags: [Users]
+*     tags: [users]
 *     parameters:
 *       - in: path
 *         name: id
@@ -233,7 +233,7 @@ router.put('/:usersId', updateUserSchema, userControllers.updateUsersById);
 *         content:
 *           application/json:
 *             schema:
-*               $ref: '#/components/schemas/Users'
+*               $ref: '#/components/schemas/users'
 */
 
 router.delete('/:userId', userControllers.deleteUsersById);
