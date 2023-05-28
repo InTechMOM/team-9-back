@@ -1,6 +1,7 @@
 import Users from "../../models/userModels.js";
 import Video from "../../models/videoModels.js";
-import { getUsersById } from "../users/userControllers.js";
+
+const MONGO_DUPLICATED_ERROR = 11000;
 
 const uploadVideo = async (req, res) => {
   try{
@@ -26,6 +27,10 @@ const uploadVideo = async (req, res) => {
   } catch (error){
     console.log (error);
     const{details} = error;
+
+    if (error.code === MONGO_DUPLICATED_ERROR) {
+      return res.status(400).json({ message:"URL is duplicate, please enter a new URL "});
+    }
 res.status(500).json({ error:details});
   }
 }
