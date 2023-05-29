@@ -35,9 +35,14 @@ export const getUsers = async (request, response) => {
 
 //Get user
 export const getUsersById = async (request, response) => {
+  let userGetById = {};
   try {
-    const userGetById = await Users.findById(request.params.usersId);
-    return response.status(200).json(userGetById);
+    userGetById = await Users.findById(request.params.usersId);    
+    if (mongoose.isValidObjectId(userGetById)) {
+      return response.status(200).json(userGetById);  
+    } else {
+      return response.status(422).json({message: "Invalid Id"});
+    }
   } catch (error) {
     if (error || !userGetById) {
       return response.status(400).json({message: "Invalid Id or Id does not exist"});
@@ -47,11 +52,16 @@ export const getUsersById = async (request, response) => {
 
 //Update user
 export const updateUsersById = async (request, response) => {
+  let userUpdate = {};
   try {
-    const userUpdate = await Users.findByIdAndUpdate(request.params.usersId, request.body, {
+    userUpdate = await Users.findByIdAndUpdate(request.params.usersId, request.body, {
       new: true
     });
-    return response.status(200).json(userUpdate);
+    if (mongoose.isValidObjectId(userUpdate)) {
+      return response.status(200).json(userUpdate);
+    } else {
+      return response.status(422).json({message: "Invalid Id"});
+    }
   } catch (error) {
     if (error || !userUpdate) {
       return response.status(400).json({message: "Invalid Id or Id does not exist"});
