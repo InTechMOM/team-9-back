@@ -125,7 +125,7 @@ router.post('/', createUserSchema, userControllers.createUsers);
 /**
  * @swagger
  * tags:
- *   name: Users
+ *   name: users
  *   description: API for users
  * 
  * /users/:
@@ -168,6 +168,8 @@ router.get('/', userControllers.getUsers);
  *             schema:
  *               type: object
  *               $ref: '#/components/schemas/users'
+ *       422:
+ *         description: Invalid Id
  *       400:
  *         description: Invalid Id or Id does not exist
  *         content:
@@ -204,6 +206,8 @@ router.get('/:usersId', userControllers.getUsersById);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/users'
+ *       422:
+ *         description: Invalid Id       
  *       400:
  *         description: Invalid Id or Id does not exist
  *         content:
@@ -234,6 +238,8 @@ router.put('/:usersId', updateUserSchema, userControllers.updateUsersById);
 *           application/json:
 *             schema:
 *               $ref: '#/components/schemas/users'
+*       400:
+*         description: Invalid Id or Id does not exist
 */
 
 router.delete('/:userId', userControllers.deleteUsersById);
