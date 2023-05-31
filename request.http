@@ -3,26 +3,26 @@ POST http://localhost:3000/users HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Karen",
-  "lastName": "",
-  "email": "karenechavarria@correo.com",
-  "rol": "teacher"
+  "name": "Salome",
+  "lastName": "Bedoya",
+  "email": "sbedoya@correo.com",
+  "rol": "student"
 }
 
 ###
 GET http://localhost:3000/users HTTP/1.1
 
 ###
-GET http://localhost:3000/users/6466780c9ddc0d32a10bea7 HTTP/1.1
+GET http://localhost:3000/users/6470dd8be71e165a44b4b66e5 HTTP/1.1
 
 ###
-PUT http://localhost:3000/users/6466780c9ddc0d32a10beae7 HTTP/1.1
+PUT http://localhost:3000/users/6467ce1e82255f7d2c039db HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Viviana",
-  "lastName": "Garcia"
+  "name": "",
+  "lastName": ""
 }
 
 ###
-DELETE http://localhost:3000/users/64656af2c6dd1eba8c91a242 HTTP/1.1
+DELETE http://localhost:3000/users/6467ce1e82255f7d2c039dba HTTP/1.1
