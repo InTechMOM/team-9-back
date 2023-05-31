@@ -124,10 +124,6 @@ router.post('/', createUserSchema, userControllers.createUsers);
 
 /**
  * @swagger
- * tags:
- *   name: users
- *   description: API for users
- * 
  * /users/:
  *   get:
  *     summary: Return all users
